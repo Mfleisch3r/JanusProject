@@ -1,5 +1,5 @@
 {
-    "BaseURL": "gp/product/",
+    "BaseURL": "/gp/product/",
     "Products": [
         {
             "ASIN": "B09X6GJ691",
@@ -10,9 +10,10 @@
             "Name": "Razer DeathAdder Essential Gaming Mouse"
         },
         {
-            "ASIN": "B08R8DT7X6",
-            "Name": "Logitech G435 LIGHTSPEED"
+            "ASIN": "B08F1VH5QL",
+            "Name": "Steam Wallet Card $20"
         }
-    ]
+    ],
+    "ExpectAdd": "Added to Cart"
 
 }

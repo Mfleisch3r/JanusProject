@@ -3,6 +3,7 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   env: {
     cart: '/cart',
+    fullCart: '/gp/cart/view.html'
   },
   e2e: {
     setupNodeEvents(on, config) {
