@@ -1,3 +1,18 @@
 {
-    
+    "BaseURL": "gp/product/",
+    "Products": [
+        {
+            "ASIN": "B09X6GJ691",
+            "Name": "Razer Ornata V3 X Gaming Keyboard"
+        },
+        {
+            "ASIN": "B094PS5RZQ",
+            "Name": "Razer DeathAdder Essential Gaming Mouse"
+        },
+        {
+            "ASIN": "B08R8DT7X6",
+            "Name": "Logitech G435 LIGHTSPEED"
+        }
+    ]
+
 }

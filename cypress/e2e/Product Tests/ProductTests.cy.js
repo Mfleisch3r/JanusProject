@@ -1,4 +1,5 @@
-import homePage from "../../pages/home"
+import homePage from "../../pages/home";
+import productPage from "../../pages/product";
 
 describe('Amazon Product Tests', () => {
     let testData;
@@ -10,7 +11,16 @@ describe('Amazon Product Tests', () => {
     })
 
 
-    it('', () => {
+    it('Add products to cart', () => {
+        // Add each product from array to cart
+        testData.Products.forEach( product => {
+            // Go to product page
+            cy.visit('/' + testData.BaseURL + product.ASIN);
+            // Store title for later use
+            productPage.elements.title().as('productTitle')
+            // Store price for later use
+            productPage.elements.price().as('productPrice')
+        });
     })
 
 })
