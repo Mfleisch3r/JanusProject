@@ -24,12 +24,11 @@ describe('Amazon Product Tests', () => {
             // Verify product was added
             cy.url().then( url => {
                 // If url has changed, expect to be in cart
-                if (url !== productUrl){
+                if (!url.includes(productUrl)){
                     expect(url).include(Cypress.env('cart'));
                     // Look for added to cart text
                     smartCartPage.elements.addMessage().should('include.text', testData.ExpectAdd);
-                
-                    // Else verify through slide cart
+                // Else verify through slide cart
                 }else{
                     productPage.elements.addMessage().should('include.text', testData.ExpectAdd);
                 }
@@ -37,6 +36,36 @@ describe('Amazon Product Tests', () => {
         });
     })
 
-    
+    it('Search by product name', () => {
+        // Search each product
+        testData.Products.forEach( product => {
+            cy.visit('/')
+            homePage.elements.searchField().clear().type(product.Name)
+            homePage.elements.searchButton().click()
+            // Dynamically get element by asin
+            cy.get('a[href*="'+ product.ASIN +'"] > span.a-text-normal').then( (element) => {
+                //Check link for ASIN
+                cy.wrap(element).parent().invoke('attr', 'href').should('include', product.ASIN)
+                // Compare result text to expected text
+                expect(element.text()).include(product.Name)
+            })
+        })
+    })
+
+    it('Search by product id(ASIN)', () => {
+        // Search each product
+        testData.Products.forEach( product => {
+            cy.visit('/')
+            homePage.elements.searchField().clear().type(product.ASIN)
+            homePage.elements.searchButton().click()
+            // Dynamically get element by asin
+            cy.get('a[href*="'+ product.ASIN +'"] > span.a-text-normal').then( (element) => {
+                //Check link for ASIN
+                cy.wrap(element).parent().invoke('attr', 'href').should('include', product.ASIN)
+                // Compare result text to expected text
+                expect(element.text()).include(product.Name)
+            })
+        })
+    })
 
 })

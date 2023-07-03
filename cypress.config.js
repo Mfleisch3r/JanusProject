@@ -9,6 +9,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: 'https://www.amazon.com'
+    baseUrl: 'https://www.amazon.com',
+    numTestsKeptInMemory: 0
   },
 });
